@@ -24,19 +24,16 @@ public class test {
 		
 		System.out.println("");
 		
-		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "2C3");
-		
+		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "2C3");		
 		System.out.println("");
 		
-		fonctions.tableauPointsLock_toString(tableauPointsLock);
-		
+		fonctions.tableauPointsLock_toString(tableauPointsLock);		
 		System.out.println("");
 		
 		fonctions.tableauOccupe_toString(tableauOccupe);
 		System.out.println("");
 		
-		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "2B3");
-		
+		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "2B3");		
 		System.out.println("");
 		
 		fonctions.tableauPointsLock_toString(tableauPointsLock);
@@ -44,14 +41,16 @@ public class test {
 		fonctions.tableauOccupe_toString(tableauOccupe);
 		System.out.println("");
 		
-		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "3B4");
-		
+		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "3B1");		
 		System.out.println("");
 		
 		fonctions.tableauPointsLock_toString(tableauPointsLock);
+		System.out.println("");
 		
 		fonctions.tableauOccupe_toString(tableauOccupe);
 		System.out.println("");
+		
+		System.out.println(fonctions.coupAJouer(tableauPointsLock, tableauOccupe));
 		
 		System.out.println("Nb row:" + row);
 		System.out.println("Nb col:" + col);
