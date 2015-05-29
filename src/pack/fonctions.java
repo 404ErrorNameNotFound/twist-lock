@@ -173,32 +173,39 @@ public class fonctions {
 			tableauPoint [x][y] = 0;
 			
 			// Haut gauche
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x-1][y-1] = tableauPoint [x-1][y-1]-tableauValeur[x-1][y-1];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x-1][y-1] = tableauPoint [x-1][y-1]-tableauValeur[x-1][y-1];}
 			
 			// Haut
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x-1][y] = tableauPoint [x-1][y]-tableauValeur[x-1][y-1];}
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x-1][y] = tableauPoint [x-1][y]-tableauValeur[x-1][y];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x-1][y] = tableauPoint [x-1][y]-tableauValeur[x-1][y-1];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x-1][y] = tableauPoint [x-1][y]-tableauValeur[x-1][y];}
 			
 			//Haut droit
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x-1][y+1] = tableauPoint [x-1][y+1]-tableauValeur[x-1][y];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x-1][y+1] = tableauPoint [x-1][y+1]-tableauValeur[x-1][y];}
 			
 			//Milieu gauche
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x][y-1] = tableauPoint [x][y-1]-tableauValeur[x-1][y-1];}
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x][y-1] = tableauPoint [x][y-1]-tableauValeur[x][y-1];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x][y-1] = tableauPoint [x][y-1]-tableauValeur[x-1][y-1];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x][y-1] = tableauPoint [x][y-1]-tableauValeur[x][y-1];}
 			
 			//Milieu Droit
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x][y+1] = tableauPoint [x][y+1]-tableauValeur[x-1][y];}
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur[0].length-1) || !(y>tableauValeur.length-1)){tableauPoint [x][y+1] = tableauPoint[x][y+1]	-tableauValeur[x][y];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x][y+1] = tableauPoint [x][y+1]-tableauValeur[x-1][y];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x][y+1] = tableauPoint[x][y+1]	-tableauValeur[x][y];}
 			
 			//Bas gauche
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x+1][y-1] = tableauPoint [x+1][y-1]-tableauValeur[x][y-1];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x+1][y-1] = tableauPoint [x+1][y-1]-tableauValeur[x][y-1];}
 			
 			//Bas milieu
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x+1][y] = tableauPoint [x+1][y]-tableauValeur[x][y-1];}
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x+1][y] = tableauPoint [x+1][y]-tableauValeur[x][y];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x+1][y] = tableauPoint [x+1][y]-tableauValeur[x][y-1];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x+1][y] = tableauPoint [x+1][y]-tableauValeur[x][y];}
 			
 			//Bas droit
-			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x+1][y+1] = tableauPoint [x+1][y+1]-tableauValeur[x][y];}
+			if(!(x-1<0) && !(y-1<0) && !(x>tableauValeur.length-1) && !(y>tableauValeur[0].length-1)){tableauPoint [x+1][y+1] = tableauPoint [x+1][y+1]-tableauValeur[x][y];}
+			
+			// Remise à Zéro des valeurs négatives
+			for (int i = 0; i<tableauPoint.length; i++) {
+				for (int j = 0; j<tableauPoint[0].length; j++) {
+					if (tableauPoint[i][j] < 0) {tableauPoint[i][j] = 0;}
+				}
+			}
 	}
 			
 	public static void isOccupied (ArrayList<String> taken, String nbcase)
@@ -221,4 +228,22 @@ public class fonctions {
 		taken.add(case3);//EX:8B4
 	}
 
+	public static String coupAJouer (int [][] tableauPoint, int [][] tableauOccupe) {
+		
+		int valMax = 0;
+		int [] coord = new int [2];
+		
+		for (int i = 0; i<tableauPoint.length; i++) {
+			for (int j = 0; j<tableauPoint[0].length; j++) {
+				if (tableauPoint[i][j]>valMax){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j;}
+				else if (tableauPoint[i][j]==valMax && tableauOccupe [i][j] == 0){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j;}
+			}
+		}
+		
+		String[] alpha={"A","B","C","D","E","F","G","H","I","J", "K"};
+		
+		String pos = (coord[0]+1) + alpha[coord[1]] + "1"; 
+		
+		return pos;
+	}
 }
