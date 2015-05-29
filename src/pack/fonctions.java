@@ -130,6 +130,12 @@ public class fonctions {
 	public static void nouveauCoup (int [][] tableauValeur, int [][] tableauPoint, int [][] tableauOccupe, int joueur, String coord) {
 		
 		String[] coords = coord.split("");
+		if (coords[1].equals("0"))
+				{
+					coords[1]=coords[2];
+					coords[2]=coords[3];
+					coords[0]="10";
+				}
 		
 		int ligne = Integer.parseInt(coords[0])-1;
 		int colonne = (int) coords[1].toUpperCase().charAt(0)-65;
@@ -148,8 +154,14 @@ public class fonctions {
 		else if (coords[2].equals("4")) {
 			ligne++;
 		}
-
-		tableauOccupe[ligne][colonne] = joueur;
+		
+		if (ligne>tableauOccupe.length-1 || colonne>tableauOccupe[0].length-1) {
+			
+		}
+		
+		else {
+			tableauOccupe[ligne][colonne] = joueur;
+		}
 		
 		recalculeTableauPoints(tableauValeur, tableauPoint, ligne,colonne);
 
@@ -208,9 +220,8 @@ public class fonctions {
 			}
 	}
 			
-	public static void isOccupied (ArrayList<String> taken, String nbcase)
+	public static void isOccupied (String nbcase)
 	{
-		taken.add(nbcase);//EX:9B1
 		String[] all=nbcase.split("");
 		String[] alpha={"Z","A","B","C","D","E","F","G","H","I","J","Y"};
 		int i=0;
@@ -221,28 +232,26 @@ public class fonctions {
 		}
 
 		String case1=all[1]+alpha[i-1]+(Integer.parseInt(all[3])+1);
-		taken.add(case1);//EX:9A2
 		String case2=(Integer.parseInt(all[1])-1)+alpha[i-1]+(Integer.parseInt(all[3])+2);
-		taken.add(case2);//EX:8A3
 		String case3=(Integer.parseInt(all[1])-1)+alpha[i]+(Integer.parseInt(all[3])+3);
-		taken.add(case3);//EX:8B4
 	}
 
 	public static String coupAJouer (int [][] tableauPoint, int [][] tableauOccupe) {
 		
+		String[] alpha={"A","B","C","D","E","F","G","H","I","J", "K"};
+		String pos = tableauPoint.length-1 + alpha[tableauPoint[0].length-1] + "2";
 		int valMax = 0;
 		int [] coord = new int [2];
 		
 		for (int i = 0; i<tableauPoint.length; i++) {
 			for (int j = 0; j<tableauPoint[0].length; j++) {
-				if (tableauPoint[i][j]>valMax){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j;}
-				else if (tableauPoint[i][j]==valMax && tableauOccupe [i][j] == 0){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j;}
+				if (tableauPoint[i][j]>valMax){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j; pos = (coord[0]+1) + alpha[coord[1]] + "1";}
+				else if (i == tableauPoint.length-1 && j == tableauPoint[0].length-1 && tableauPoint[i][j]==valMax && tableauOccupe [i][j] == 0 && coord[0]==0 && coord[1]==0){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j; pos = (coord[0]) + alpha[coord[1]-1] + "3"; }
+				else if (j == tableauPoint[0].length-1 && tableauPoint[i][j]==valMax && tableauOccupe [i][j] == 0 && coord[0]==0 && coord[1]==0){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j; pos = (coord[0]+1) + alpha[coord[1]-1] + "3"; }
+				else if (i == tableauPoint.length-1 && tableauPoint[i][j]==valMax && tableauOccupe [i][j] == 0 && coord[0]==0 && coord[1]==0){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j; pos = (coord[0]) + alpha[coord[1]] + "4"; }				
+				else if (tableauPoint[i][j]==valMax && tableauOccupe [i][j] == 0 && coord[0]==0 && coord[1]==0){valMax = tableauPoint[i][j]; coord[0] = i; coord [1] = j; pos = (coord[0]+1) + alpha[coord[1]] + "1"; }
 			}
 		}
-		
-		String[] alpha={"A","B","C","D","E","F","G","H","I","J", "K"};
-		
-		String pos = (coord[0]+1) + alpha[coord[1]] + "1"; 
 		
 		return pos;
 	}

@@ -8,11 +8,13 @@ public class Connexion_jeux
     public static void main(String args[]) throws SocketException, UnknownHostException
     {
         DatagramSocket sock = null;
-        int port = 9218;
+        //int port = 9218;
+        int port = 10032;
         String s;
         int tour=0;
         sock = new DatagramSocket();
     	InetAddress host = InetAddress.getByName("172.30.7.16");
+    	//InetAddress host = InetAddress.getByName("172.30.10.69");
     	
         String couleur="";
         String map="";
