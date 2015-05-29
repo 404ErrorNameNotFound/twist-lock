@@ -8,7 +8,7 @@ public class Connexion_jeux
     public static void main(String args[]) throws SocketException, UnknownHostException
     {
         DatagramSocket sock = null;
-        int port = 9877;
+        int port = 9218;
         String s;
         int tour=0;
         sock = new DatagramSocket();
@@ -17,7 +17,7 @@ public class Connexion_jeux
         String couleur="";
         String map="";
         String coupennemy="";
-        s = "truc";
+        s = "Error404NameNotFound";
          
         BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
         

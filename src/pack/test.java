@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class test {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		
-		String val = "25:26:27:45|54:12:13:14|67:34:35:36";
+		/*String val = "25:26:27:45|54:12:13:14|67:34:35:36";
 		int col = fonctions.ColMap(val);
 		int row = fonctions.LigneMap(val);
 		int [][] tableauValeur = fonctions.tableauValeur(val, row, col);
@@ -54,6 +54,7 @@ public class test {
 		
 		System.out.println("Nb row:" + row);
 		System.out.println("Nb col:" + col);
-	}
+
+	}*/
 
 }
