@@ -1,5 +1,6 @@
 package pack;
 
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -21,12 +22,19 @@ public class ia
 	
 	public void jouer(DatagramSocket sock, InetAddress host, int port)
 	{
-		String coup = fonctions.coupAJouer(tableauPoint);
+		String coup = fonctions.coupAJouer(tableauPoint, tableauOccupe);
 		fonctions.nouveauCoup(tableauValeur, tableauPoint, tableauOccupe, 1, coup);
 		// socket
-		byte[] b = coup.getBytes();
-    	DatagramPacket  dp = new DatagramPacket(b , b.length , host , port);
-        sock.send(dp);
+		try
+		{
+			byte[] b = coup.getBytes();
+			DatagramPacket  dp = new DatagramPacket(b , b.length , host , port);
+	    	sock.send(dp);
+		}
+		catch(IOException e)
+        {
+            System.err.println("IOException " + e);
+        }
 	}
 	
 	public void maj(String point, int player)
