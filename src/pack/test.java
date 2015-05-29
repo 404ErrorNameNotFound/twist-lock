@@ -8,12 +8,13 @@ public class test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println ("Hello world ! BIAAAAATCH !!");
-		Scanner scan = new Scanner (System.in);
-		System.out.println ("Tapez la map : ");
-		String map = scan.nextLine();
-		
-		fonctions.nombre_lignes(map);
+		String val = "25:26:27:45|54:12:13:14|67:34:35:36";
+		String[] truc = fonctions.splitLigne(val);
+		String [] machin = fonctions.splitCol(truc[0]);
+		int col = fonctions.ColMap(machin);
+		int row = fonctions.LigneMap(truc);
+		System.out.println("Nb row:" + row);
+		System.out.println("Nb col:" + col);
 	}
 
 }

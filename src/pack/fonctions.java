@@ -2,14 +2,32 @@ package pack;
 
 public class fonctions {
 
-public static int nombre_lignes (String map) {
+	public static int LigneMap(String[] s)
+	{
+		return s.length;
+	}
+	
+	public static int ColMap(String[] s)
+	{
+		return s.length;
+	}
+	
+	public static String[] splitLigne(String s)
+	{
+		String inter = s.replace("|","-");
+		String[] truc = inter.split("-");
 		
-		int lignes = 0;
+		/*for (int i = 0; i<truc.length; i++)
+			System.out.println(truc[i]);
+			*/
+		return truc;
 		
-		while (map.split("|") != null) {
-			lignes ++;
-		}
-		
-		return lignes;
+	}
+	
+	public static String[] splitCol(String tab)
+	{
+		String[] truc;
+		truc = tab.split(":");
+		return truc;
 	}
 }
