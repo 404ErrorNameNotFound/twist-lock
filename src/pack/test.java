@@ -11,9 +11,19 @@ public class test {
 		String val = "25:26:27:45|54:12:13:14|67:34:35:36";
 		int col = fonctions.ColMap(val);
 		int row = fonctions.LigneMap(val);
-		String [][] tableau = fonctions.tableau(val, row, col);
+		int [][] tableauValeur = fonctions.tableauValeur(val, row, col);
+				
+		fonctions.tableauValeur_toString(tableauValeur);
 		
-		fonctions.tableau_toString(tableau);
+		int [][] tableauPointsLock = fonctions.tableauPointsLock(tableauValeur);
+		
+		fonctions.tableauPointsLock_toString(tableauPointsLock);
+		
+		int [][] tableauOccupe = fonctions.initTableauOccupe(tableauPointsLock);
+		
+		fonctions.nouveauCoup(tableauOccupe, 2, "2E3");
+		
+		fonctions.tableauOccupe_toString(tableauOccupe);
 		
 		System.out.println("Nb row:" + row);
 		System.out.println("Nb col:" + col);
