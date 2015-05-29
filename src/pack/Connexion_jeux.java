@@ -65,13 +65,12 @@ public class Connexion_jeux
 	            	s = "";
 	            }
 	            else if(s.contains("50"))
-	            	while (true)
-	            	{
-	            		s = "Fini";
-	            		byte[] b = s.getBytes();
-		            	DatagramPacket  dp = new DatagramPacket(b , b.length , host , port);
-			            sock.send(dp);
-	            	}
+	            {
+            		s = "randaylargentozabonnay";
+            		byte[] b = s.getBytes();
+	            	DatagramPacket  dp = new DatagramPacket(b , b.length , host , port);
+		            sock.send(dp);
+	            }
 	            else if(s.contains("88"))
 	            	break;
 	            else
