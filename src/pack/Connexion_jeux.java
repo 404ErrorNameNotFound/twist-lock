@@ -20,7 +20,9 @@ public class Connexion_jeux
         s = "truc";
          
         BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
-         
+        
+        ia ia = null;
+        
         try
         {
         	while(true)
@@ -37,7 +39,7 @@ public class Connexion_jeux
 	            if(s.contains("|"))
 	            {
 		            map=getMap(s);
-		            // donner la map à l'IA
+		            ia = new ia(map);
 		            echo("Couleur: "+couleur+"\nMap= "+map);
 		            s = "";
 	            }
@@ -48,15 +50,14 @@ public class Connexion_jeux
 	            }
 	            else if(s.contains("10"))
 	            {
-	            	// A nous de jouer
-	            	// mise à jour de la map avec nos données
+	            	ia.jouer(sock, host, port);
 	            	s = "";
 	            }
 	            else if(s.contains("20"))
 	            {
 	        		coupennemy=getCoup(s);
 	        		System.out.println("adversaire a joué");
-	        		// mise à jour de nos données : map de l'IA
+	        		ia.maj(coupennemy, 2);
 	            	s = "";
 	            }
 	            else if(s.contains("21"))
@@ -91,6 +92,7 @@ public class Connexion_jeux
 		            
 	                tour++;
 	         }
+        	sock.close();
         }
          
         catch(IOException e)
