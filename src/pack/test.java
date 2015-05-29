@@ -7,23 +7,51 @@ import java.util.Scanner;
 public class test {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		
 		String val = "25:26:27:45|54:12:13:14|67:34:35:36";
 		int col = fonctions.ColMap(val);
 		int row = fonctions.LigneMap(val);
 		int [][] tableauValeur = fonctions.tableauValeur(val, row, col);
+		int [][] tableauOccupe = fonctions.initTableauOccupe(row, col);
 				
 		fonctions.tableauValeur_toString(tableauValeur);
+		System.out.println("");
 		
 		int [][] tableauPointsLock = fonctions.tableauPointsLock(tableauValeur);
 		
 		fonctions.tableauPointsLock_toString(tableauPointsLock);
 		
-		int [][] tableauOccupe = fonctions.initTableauOccupe(tableauPointsLock);
+		System.out.println("");
 		
-		fonctions.nouveauCoup(tableauOccupe, 2, "2E3");
+		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "2C3");
+		
+		System.out.println("");
+		
+		fonctions.tableauPointsLock_toString(tableauPointsLock);
+		
+		System.out.println("");
 		
 		fonctions.tableauOccupe_toString(tableauOccupe);
+		System.out.println("");
+		
+		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "2B3");
+		
+		System.out.println("");
+		
+		fonctions.tableauPointsLock_toString(tableauPointsLock);
+		
+		fonctions.tableauOccupe_toString(tableauOccupe);
+		System.out.println("");
+		
+		fonctions.nouveauCoup(tableauValeur, tableauPointsLock, tableauOccupe, 2, "3B4");
+		
+		System.out.println("");
+		
+		fonctions.tableauPointsLock_toString(tableauPointsLock);
+		
+		fonctions.tableauOccupe_toString(tableauOccupe);
+		System.out.println("");
 		
 		System.out.println("Nb row:" + row);
 		System.out.println("Nb col:" + col);

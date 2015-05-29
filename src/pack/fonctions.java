@@ -114,20 +114,20 @@ public class fonctions {
 		}
 	}
 	
-	public static int[][] initTableauOccupe (int [][] tableau) {
+	public static int[][] initTableauOccupe (int ligne, int col) {
 		
-		int [][] tableauOccupe = new int [tableau.length][tableau[0].length];
+		int [][] tableauOccupe = new int [ligne+1][col+1];
 		
-		for (int i = 0; i<tableau.length; i++) {
-			for (int j = 0; j<tableau[0].length; j++) {
+		for (int i = 0; i<=ligne; i++) {
+			for (int j = 0; j<=col; j++) {
 				tableauOccupe [i][j] = 0;
 			}
 		}
 		
 		return tableauOccupe;
 	}
-	
-	public static void nouveauCoup (int [][] tableauOccupe, int joueur, String coord) {
+
+	public static void nouveauCoup (int [][] tableauValeur, int [][] tableauPoint, int [][] tableauOccupe, int joueur, String coord) {
 		
 		String[] coords = coord.split("");
 		
@@ -148,12 +148,11 @@ public class fonctions {
 		else if (coords[2].equals("4")) {
 			ligne++;
 		}
-		
-		if (ligne>tableauOccupe.length-1 || colonne>tableauOccupe[0].length-1) {
-			return;
-		}
 
-		else {tableauOccupe[ligne][colonne] = joueur;}
+		tableauOccupe[ligne][colonne] = joueur;
+		
+		recalculeTableauPoints(tableauValeur, tableauPoint, ligne,colonne);
+
 	}
 	
 	public static void tableauOccupe_toString (int [][] tableau) {
@@ -167,7 +166,41 @@ public class fonctions {
 			System.out.println("");
 		}
 	}
-
+	
+	public static void recalculeTableauPoints (int [][] tableauValeur, int[][] tableauPoint, int x, int y) {
+		
+			// Milieu 
+			tableauPoint [x][y] = 0;
+			
+			// Haut gauche
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x-1][y-1] = tableauPoint [x-1][y-1]-tableauValeur[x-1][y-1];}
+			
+			// Haut
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x-1][y] = tableauPoint [x-1][y]-tableauValeur[x-1][y-1];}
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x-1][y] = tableauPoint [x-1][y]-tableauValeur[x-1][y];}
+			
+			//Haut droit
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x-1][y+1] = tableauPoint [x-1][y+1]-tableauValeur[x-1][y];}
+			
+			//Milieu gauche
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x][y-1] = tableauPoint [x][y-1]-tableauValeur[x-1][y-1];}
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x][y-1] = tableauPoint [x][y-1]-tableauValeur[x][y-1];}
+			
+			//Milieu Droit
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x][y+1] = tableauPoint [x][y+1]-tableauValeur[x-1][y];}
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur[0].length-1) || !(y>tableauValeur.length-1)){tableauPoint [x][y+1] = tableauPoint[x][y+1]	-tableauValeur[x][y];}
+			
+			//Bas gauche
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x+1][y-1] = tableauPoint [x+1][y-1]-tableauValeur[x][y-1];}
+			
+			//Bas milieu
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x+1][y] = tableauPoint [x+1][y]-tableauValeur[x][y-1];}
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x+1][y] = tableauPoint [x+1][y]-tableauValeur[x][y];}
+			
+			//Bas droit
+			if(!(x-1<0) || !(y-1<0) || !(x>tableauValeur.length-1) || !(y>tableauValeur.length-1)){tableauPoint [x+1][y+1] = tableauPoint [x+1][y+1]-tableauValeur[x][y];}
+	}
+			
 	public static void isOccupied (ArrayList<String> taken, String nbcase)
 	{
 		taken.add(nbcase);//EX:9B1
